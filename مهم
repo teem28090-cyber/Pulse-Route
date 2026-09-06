@@ -1,0 +1,9 @@
+لوحة التحكم: http://localhost:8080/admin
+الموقع الرئيسي: http://localhost:8080
+الـ API المباشر: http://localhost:8080/api/v1/team
+
+أمر التشغيل المباشر
+cargo run --bin server
+
+لتشغيله في أجزاء من الثانية
+.\target\debug\server.exe
