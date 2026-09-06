@@ -132,9 +132,7 @@ Our multidisciplinary 5-member team combines university academia with deep engin
 * **Mazen Ahmed** — *Full-Stack Developer & Product Lead* (Distributed Web Architecture, Real-Time Telemetry, UI/UX State Machines)
 * **Yassen Sabry Elawamy** — *Back-End & Cloud Systems Engineer* (Rust Core Architecture, PostgREST / Supabase Optimization, Distributed Microservices)
 * **Ahmed Helmy El-Attar** — *AI & Machine Learning Engineer* (Ant Colony Optimization, Predictive Congestion Models, Computer Vision)
-* **Mai Magdy Mahmoud** — *Cybersecurity & Penetration Tester* (Zero-Trust Cryptographic Handshakes, Threat Modeling, AES/RSA Authentication)
-* **Aly Yoser** — *Embedded Systems & IoT Hardware Lead* (RSU Transceivers, C/C++ Firmware, V2X Mesh Radio & Sensor Interfacing)
-
+* **Mai Magdy Mahmoud** — *Cybersecurity & Penetration Tester* (Zero-Trust Cryptographic Handshakes, Threat Modeling, AES/RSA Authentication) 
 ---
 
 ## 10. Comprehensive Judge & Investor Q&A
