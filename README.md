@@ -230,7 +230,6 @@ e:\back tem\
 | **Yassen Sabry Elawamy** | Backend & Cloud Systems Lead | Rust Concurrency, Database Design, Serverless Architecture, REST APIs |
 | **Ahmed Helmy El-Attar** | AI & Machine Learning Lead | Ant Colony Optimization (ACO), Predictive Traffic, Computer Vision |
 | **Mai Magdy Mahmoud** | Cybersecurity & Penetration Tester | Zero-Trust Networks, Cryptographic Handshakes, Threat Modeling |
-| **Aly Yoser** | Embedded Systems & IoT Hardware Lead | RSU Transceivers, C/C++ Firmware, V2X Radio & Sensor Interfacing |
 
 </div>
 
