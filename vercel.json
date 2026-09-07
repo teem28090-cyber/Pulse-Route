@@ -1,0 +1,48 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.rs",
+      "use": "vercel-rust@latest"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/health",
+      "dest": "/api/health.rs"
+    },
+    {
+      "src": "/api/team/reorder",
+      "dest": "/api/team.rs"
+    },
+    {
+      "src": "/api/team/(.*)",
+      "dest": "/api/team.rs"
+    },
+    {
+      "src": "/api/team",
+      "dest": "/api/team.rs"
+    },
+    {
+      "src": "/api/v1/(.*)",
+      "dest": "/api/$1.rs"
+    },
+    {
+      "src": "/admin",
+      "dest": "/public/admin/index.html"
+    },
+    {
+      "src": "/admin/(.*)",
+      "dest": "/public/admin/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
+}
