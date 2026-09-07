@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseRoute</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-theme">
+  <!-- Custom Logo Follower Cursor -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <div class="cursor-glow"></div>
+    <img src="assets/custom-cursor.png" alt="" class="cursor-logo" />
+  </div>
+  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Deep-space glowing starfield canvas -->
+  <canvas id="starfield-canvas" class="starfield-canvas"></canvas>
+
+  <!-- Ambient lighting gradients -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#hero" class="brand-link" aria-label="PulseRoute Home">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo.png" alt="PulseRoute Logo" class="brand-logo" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">PULSE<span class="brand-accent">ROUTE</span></span>
+          <span class="brand-badge" data-i18n="badge_global">GLOBAL TECH INNOVATION</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#problem" class="nav-item" data-i18n="nav_problem">Challenge</a>
+        <a href="#solution" class="nav-item" data-i18n="nav_solution">Solution</a>
+        <a href="#simulation" class="nav-item" data-i18n="nav_system">Live System</a>
+        <a href="#security" class="nav-item" data-i18n="nav_security">Security</a>
+        <a href="#vision" class="nav-item" data-i18n="nav_vision">Vision</a>
+        <a href="#team" class="nav-item" data-i18n="nav_team">Team</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Language Switcher -->
+        <button id="lang-toggle-btn" class="control-btn lang-btn" aria-label="Toggle Language" title="Switch Language">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-label" class="lang-text">عربي</span>
+        </button>
+
+        <!-- Dark/Light Theme Switcher -->
+        <button id="theme-toggle-btn" class="control-btn theme-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-sun icon-sun"></i>
+          <i class="fa-solid fa-moon icon-moon"></i>
+        </button>
+
+        <!-- Mobile menu hamburger -->
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container">
+        <div class="hero-status-pill reveal-fade">
+          <span class="pulse-indicator"></span>
+          <span class="pill-text" data-i18n="hero_pill">NEXT-GEN EMERGENCY DISPATCH &amp; TRAFFIC PREEMPTION</span>
+        </div>
+
+        <h1 class="hero-title reveal-title">
+          <span class="title-line">PULSEROUTE</span>
+        </h1>
+
+        <p class="hero-tagline reveal-tagline" data-i18n="hero_tagline">
+          INTELLIGENT EMERGENCY RESPONSE SYSTEM
+        </p>
+
+        <p class="hero-description reveal-desc" data-i18n="hero_desc">
+          A high-precision, AI-orchestrated infrastructure connecting call centers, emergency dispatch vehicles, and smart traffic signal networks via real-time V2I and encrypted telemetry—clearing life-saving corridors when every second counts.
+        </p>
+
+        <div class="hero-cta-group reveal-cta">
+          <a href="#solution" class="btn btn-primary" data-i18n="hero_btn_explore">
+            <span>Explore Architecture</span>
+            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+          </a>
+          <a href="#simulation" class="btn btn-secondary" data-i18n="hero_btn_simulation">
+            <i class="fa-solid fa-satellite-dish"></i>
+            <span>Interactive Demo</span>
+          </a>
+        </div>
+
+        <!-- Telemetry Stats Strip -->
+        <div class="hero-telemetry-grid reveal-stats">
+          <div class="telemetry-card">
+            <div class="telemetry-value"><span class="counter" data-target="68">0</span>%</div>
+            <div class="telemetry-label" data-i18n="stat_time">Response Delay Reduction</div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-value"><span class="counter" data-target="800">0</span><span class="unit">m</span></div>
+            <div class="telemetry-label" data-i18n="stat_distance">V2I Preemption Horizon</div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-value"><span class="counter" data-target="120">0</span><span class="unit">s</span></div>
+            <div class="telemetry-label" data-i18n="stat_clearing">Dynamic De-congestion Phase</div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-value">99.99<span class="unit">%</span></div>
+            <div class="telemetry-label" data-i18n="stat_security">Encrypted Link Reliability</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-cue">
+        <a href="#problem" aria-label="Scroll down">
+          <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+          <span class="scroll-text" data-i18n="scroll_cue">Scroll to explore</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. PROBLEM SECTION -->
+    <section id="problem" class="section problem-section">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow" data-i18n="problem_eyebrow">CRITICAL BOTTLENECK</span>
+          <h2 class="section-title" data-i18n="problem_title">The Critical Challenge: Minutes Mean Lives</h2>
+          <p class="section-subtitle" data-i18n="problem_subtitle">
+            Traditional emergency services are hindered by fragmented communication, manual routing bottlenecks, and uncontrollable urban congestion.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <!-- Problem 1: Dispatch Delay -->
+          <div class="problem-card reveal-on-scroll">
+            <div class="problem-card-icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div class="problem-card-number">01</div>
+            <h3 class="problem-card-title" data-i18n="problem_1_title">Dispatch Delay</h3>
+            <p class="problem-card-desc" data-i18n="problem_1_desc">
+              Critical minutes lost during emergency call processing, manual verification of patient coordinates, and finding the closest fully equipped vehicle.
+            </p>
+            <div class="problem-card-metric">
+              <span class="metric-bad">+4-7 min</span>
+              <span class="metric-caption" data-i18n="problem_1_metric">Average triage latency</span>
+            </div>
+          </div>
+
+          <!-- Problem 2: Transit Obstacles -->
+          <div class="problem-card reveal-on-scroll">
+            <div class="problem-card-icon">
+              <i class="fa-solid fa-traffic-light"></i>
+            </div>
+            <div class="problem-card-number">02</div>
+            <h3 class="problem-card-title" data-i18n="problem_2_title">Transit Obstacles</h3>
+            <p class="problem-card-desc" data-i18n="problem_2_desc">
+              Inability to predict unpredictable traffic jams, dense bottlenecks, and sudden urban gridlocks that strand emergency vehicles in unmovable queues.
+            </p>
+            <div class="problem-card-metric">
+              <span class="metric-bad">55%</span>
+              <span class="metric-caption" data-i18n="problem_2_metric">Route unpredictability</span>
+            </div>
+          </div>
+
+          <!-- Problem 3: Traffic Light Dependency -->
+          <div class="problem-card reveal-on-scroll">
+            <div class="problem-card-icon">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="problem-card-number">03</div>
+            <h3 class="problem-card-title" data-i18n="problem_3_title">Signal Dependency</h3>
+            <p class="problem-card-desc" data-i18n="problem_3_desc">
+              Relying on sheer chance for green lights at intersections. Running red lights risks catastrophic T-bone collisions and paralyzes cross-traffic safety.
+            </p>
+            <div class="problem-card-metric">
+              <span class="metric-bad">38%</span>
+              <span class="metric-caption" data-i18n="problem_3_metric">Intersection crash hazard</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem Impact Banner -->
+        <div class="problem-impact-banner reveal-on-scroll">
+          <div class="impact-quote-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div class="impact-content">
+            <h4 data-i18n="problem_impact_title">The Golden Hour In Jeopardy</h4>
+            <p data-i18n="problem_impact_desc">Every 60-second delay in trauma response or cardiac arrest resuscitation decreases survival probability by up to 10%. Emergency services require a synchronized, intelligent infrastructure that controls the city rather than struggles against it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SOLUTION SECTION -->
+    <section id="solution" class="section solution-section">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow" data-i18n="solution_eyebrow">INTELLIGENT ARCHITECTURE</span>
+          <h2 class="section-title" data-i18n="solution_title">The Pulseroute Ecosystem</h2>
+          <p class="section-subtitle" data-i18n="solution_subtitle">
+            An end-to-end cyber-physical platform transforming static city intersections into an adaptive, self-clearing emergency transit corridor.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <!-- Pillar 1: Call Center Integration -->
+          <div class="solution-card reveal-on-scroll">
+            <div class="card-badge" data-i18n="sol_1_step">STEP 01 // DISPATCH</div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <h3 class="card-title" data-i18n="sol_1_title">Call Center AI Integration</h3>
+            <p class="card-intro" data-i18n="sol_1_intro">Intelligent triage and instant fleet activation without manual operator friction.</p>
+            <ul class="feature-checklist">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_1_p1"><strong>Integrated AI Telephony:</strong> Automatically transcribes and extracts caller emergency tier and incident details.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_1_p2"><strong>Instant Geolocation Fetching:</strong> Pins patient location instantly via cellular tower &amp; GPS triangulation.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_1_p3"><strong>Optimal Fleet Dispatch:</strong> Calculates fastest arrival vector based on real-time vehicle equipment &amp; proximity.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_1_p4"><strong>Automated Station Siren Trigger:</strong> Simultaneously activates in-station sirens and lights for immediate crew roll-out.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2: In-Vehicle Cockpit Display -->
+          <div class="solution-card reveal-on-scroll">
+            <div class="card-badge" data-i18n="sol_2_step">STEP 02 // COCKPIT</div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <h3 class="card-title" data-i18n="sol_2_title">In-Vehicle HUD &amp; Telemetry</h3>
+            <p class="card-intro" data-i18n="sol_2_intro">High-refresh situational dashboard purpose-built for high-speed emergency navigation.</p>
+            <ul class="feature-checklist">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_2_p1"><strong>Signals Remaining Counter:</strong> Real-time countdown of upcoming intersections until scene arrival.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_2_p2"><strong>Dynamic Patient ETA:</strong> Machine-learning ETA updated every 500ms using continuous telemetry.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_2_p3"><strong>Signal Health &amp; Phase Status:</strong> Live color, time-to-green, and controller handshake for every intersection ahead.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_2_p4"><strong>Driver Override Toggle:</strong> One-tap cockpit switch for direct manual override of any linked intersection.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3: Smart Signal Preemption -->
+          <div class="solution-card reveal-on-scroll">
+            <div class="card-badge" data-i18n="sol_3_step">STEP 03 // V2I CONTROL</div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-tower-broadcast"></i>
+            </div>
+            <h3 class="card-title" data-i18n="sol_3_title">V2I Preemption (700–800m)</h3>
+            <p class="card-intro" data-i18n="sol_3_intro">Automated intersection control that preempts traffic before sirens are even heard.</p>
+            <ul class="feature-checklist">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_3_p1"><strong>Long-Range C-V2X / DSRC Handshake:</strong> Secures two-way connectivity 700 to 800 meters ahead of the intersection.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_3_p2"><strong>AI Dynamic Phase Lock:</strong> Automatically opens the transit lane green while safely switching cross-traffic to red.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_3_p3"><strong>Instant Traffic Re-Normalization:</strong> Resets signals to normal cycle the exact instant the vehicle clears the intersection.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_3_p4"><strong>120-Second Anti-Congestion Flush:</strong> Retains subsequent signal green times for 2 minutes to eliminate accumulated gridlock.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 4: Dynamic Visual Guidance -->
+          <div class="solution-card reveal-on-scroll">
+            <div class="card-badge" data-i18n="sol_4_step">STEP 04 // VISUAL GUIDANCE</div>
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-arrows-split-up-and-left"></i>
+            </div>
+            <h3 class="card-title" data-i18n="sol_4_title">Dynamic Intersection Guidance</h3>
+            <p class="card-intro" data-i18n="sol_4_intro">Proactive visual communication projecting instructions directly to surrounding civilian drivers.</p>
+            <ul class="feature-checklist">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_4_p1"><strong>Digital Signal Display Panels:</strong> Ultra-bright dynamic signage integrated into traffic light gantries.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_4_p2"><strong>Proactive ETA Projection:</strong> Flashes "AMBULANCE APPROACHING: ETA 45 SECONDS" to alert waiting motorists.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_4_p3"><strong>Adaptive Lane Clear Arrows:</strong> Displays Right, Left, and revolutionary 'CLEAR MIDDLE LANE' directional vectors.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="sol_4_p4"><strong>Driver-Controlled Path Selection:</strong> Paramedic driver selects intended lane split, instantly updating civilian displays.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE SYSTEM SIMULATOR -->
+    <section id="simulation" class="section simulation-section">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow" data-i18n="sim_eyebrow">LIVE INTERACTIVE TELEMETRY</span>
+          <h2 class="section-title" data-i18n="sim_title">Interactive Corridor &amp; Dashboard Simulator</h2>
+          <p class="section-subtitle" data-i18n="sim_subtitle">
+            Experience Pulseroute in action. Test the 700m V2I handshake, dynamic lane signage, manual driver override, and automatic 2-minute congestion clearing.
+          </p>
+        </div>
+
+        <div class="sim-wrapper reveal-on-scroll">
+          <!-- In-Vehicle Cockpit Telemetry HUD -->
+          <div class="sim-hud">
+            <div class="hud-top-bar">
+              <div class="hud-unit-id">
+                <i class="fa-solid fa-truck-medical text-pulse"></i>
+                <span class="hud-id-text">UNIT #04 — RAPID RESCUE</span>
+              </div>
+              <div class="hud-link-status">
+                <span class="hud-link-dot"></span>
+                <span id="hud-v2i-state">V2I LINK: ACTIVE (780m)</span>
+              </div>
+              <div class="hud-clock" id="sim-clock">14:32:08</div>
+            </div>
+
+            <div class="hud-metrics-row">
+              <div class="hud-metric-box">
+                <span class="hud-metric-title" data-i18n="hud_signals_left">SIGNALS REMAINING</span>
+                <span class="hud-metric-number" id="hud-signals-val">3</span>
+                <span class="hud-metric-sub">Upcoming: Main &amp; 5th Ave</span>
+              </div>
+
+              <div class="hud-metric-box">
+                <span class="hud-metric-title" data-i18n="hud_eta">LIVE PATIENT ETA</span>
+                <span class="hud-metric-number text-accent" id="hud-eta-val">02:45</span>
+                <span class="hud-metric-sub">Distance: 1.8 km</span>
+              </div>
+
+              <div class="hud-metric-box">
+                <span class="hud-metric-title" data-i18n="hud_signal_state">NEXT SIGNAL STATUS</span>
+                <div class="hud-signal-pill" id="hud-signal-pill">
+                  <span class="signal-indicator green"></span>
+                  <span id="hud-signal-status-text">PREEMPTED (GREEN)</span>
+                </div>
+                <span class="hud-metric-sub" id="hud-signal-timing">Lock window: 28s</span>
+              </div>
+
+              <div class="hud-metric-box">
+                <span class="hud-metric-title" data-i18n="hud_mode">CONTROL MODE</span>
+                <div class="mode-toggle-wrap">
+                  <button id="btn-mode-ai" class="mode-btn active" data-i18n="mode_ai">AI AUTO</button>
+                  <button id="btn-mode-manual" class="mode-btn" data-i18n="mode_manual">MANUAL</button>
+                </div>
+                <span class="hud-metric-sub" id="hud-mode-sub">Autonomous Corridor Clearing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Intersection & Digital Panel Display -->
+          <div class="sim-visual-grid">
+            <!-- Traffic Light Digital Panel Mockup -->
+            <div class="intersection-panel-card">
+              <div class="panel-header">
+                <i class="fa-solid fa-traffic-light"></i>
+                <span data-i18n="panel_title">Intersection Smart Signal &amp; Signage Display</span>
+              </div>
+              
+              <div class="intersection-visual-box">
+                <!-- Physical Traffic Light -->
+                <div class="traffic-light-housing">
+                  <div class="light-bulb red" id="light-red"></div>
+                  <div class="light-bulb yellow" id="light-yellow"></div>
+                  <div class="light-bulb green active" id="light-green"></div>
+                </div>
+
+                <!-- Digital Matrix Panel -->
+                <div class="digital-gantry-screen">
+                  <div class="matrix-ticker" id="matrix-ticker">
+                    <span class="matrix-badge">EMERGENCY PREEMPTION ACTIVE</span>
+                    <span class="matrix-text" id="matrix-main-text">AMBULANCE APPROACHING: ETA 35 SECONDS</span>
+                  </div>
+
+                  <div class="matrix-lanes-display">
+                    <div class="lane-sign left-lane" id="lane-left">
+                      <i class="fa-solid fa-arrow-turn-left"></i>
+                      <span>PULL LEFT</span>
+                    </div>
+                    <div class="lane-sign middle-lane active-clear" id="lane-mid">
+                      <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                      <span data-i18n="lane_mid_label">CLEAR MIDDLE LANE</span>
+                    </div>
+                    <div class="lane-sign right-lane" id="lane-right">
+                      <i class="fa-solid fa-arrow-turn-right"></i>
+                      <span>PULL RIGHT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Driver Interactive Controls -->
+              <div class="driver-controls-bar">
+                <span class="controls-label" data-i18n="driver_cockpit_label">Cockpit Lane Guidance Selection:</span>
+                <div class="btn-group-lanes">
+                  <button class="lane-choice-btn" data-lane="left">
+                    <i class="fa-solid fa-arrow-turn-left"></i>
+                    <span data-i18n="lane_left_btn">Left Split</span>
+                  </button>
+                  <button class="lane-choice-btn active" data-lane="mid">
+                    <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                    <span data-i18n="lane_mid_btn">Clear Middle (Default)</span>
+                  </button>
+                  <button class="lane-choice-btn" data-lane="right">
+                    <i class="fa-solid fa-arrow-turn-right"></i>
+                    <span data-i18n="lane_right_btn">Right Split</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Preemption Sequence Timeline -->
+            <div class="preemption-timeline-card">
+              <div class="timeline-header">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span data-i18n="timeline_title">Autonomous Preemption Lifecycle</span>
+              </div>
+              <div class="timeline-steps">
+                <div class="step-item active" id="tstep-1">
+                  <div class="step-marker">1</div>
+                  <div class="step-info">
+                    <h5 data-i18n="tstep_1_title">800m V2I Handshake</h5>
+                    <p data-i18n="tstep_1_desc">Vehicle broadcasts cryptographic beacon. Intersection controller validates auth token.</p>
+                  </div>
+                </div>
+                <div class="step-item active" id="tstep-2">
+                  <div class="step-marker">2</div>
+                  <div class="step-info">
+                    <h5 data-i18n="tstep_2_title">Corridor Green Wave</h5>
+                    <p data-i18n="tstep_2_desc">Cross-traffic safely cycled to red. Emergency lane locked to continuous green.</p>
+                  </div>
+                </div>
+                <div class="step-item active" id="tstep-3">
+                  <div class="step-marker">3</div>
+                  <div class="step-info">
+                    <h5 data-i18n="tstep_3_title">Passage Sensor Trigger</h5>
+                    <p data-i18n="tstep_3_desc">RFID/optical sensor detects vehicle exit. Immediate handoff to next signal node.</p>
+                  </div>
+                </div>
+                <div class="step-item" id="tstep-4">
+                  <div class="step-marker">4</div>
+                  <div class="step-info">
+                    <h5 data-i18n="tstep_4_title">120s Congestion Flush</h5>
+                    <p data-i18n="tstep_4_desc">Normal cycle restored with 2-minute dynamic compensation to dissolve civilian backlog.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Simulation Trigger Actions -->
+              <div class="sim-actions-footer">
+                <button id="btn-trigger-passage" class="btn btn-sm btn-outline">
+                  <i class="fa-solid fa-forward-step"></i>
+                  <span data-i18n="sim_btn_passage">Simulate Ambulance Passage</span>
+                </button>
+                <button id="btn-trigger-reset" class="btn btn-sm btn-ghost">
+                  <i class="fa-solid fa-rotate-left"></i>
+                  <span data-i18n="sim_btn_reset">Reset Cycle</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SECURITY ARCHITECTURE (MAI'S SPECIALIZATION) -->
+    <section id="security" class="section security-section">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow" data-i18n="security_eyebrow">CRITICAL INFRASTRUCTURE DEFENSE</span>
+          <h2 class="section-title" data-i18n="security_title">Zero-Trust &amp; Hardened Security</h2>
+          <p class="section-subtitle" data-i18n="security_subtitle">
+            Because a traffic control preemption system is a prime target for malicious interference, Pulseroute incorporates military-grade encryption, penetration testing, and layered telemetry.
+          </p>
+        </div>
+
+        <div class="security-pillars-grid">
+          <div class="sec-card reveal-on-scroll">
+            <div class="sec-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="sec-title" data-i18n="sec_1_title">Encrypted Dual-Channel V2I &amp; Satellite</h3>
+            <p class="sec-desc" data-i18n="sec_1_desc">
+              All telemetry between vehicles and intersection nodes is encapsulated in AES-256-GCM encryption with dynamic rotating keys. High-availability failsafe incorporates redundant secure satellite links alongside terrestrial V2I mesh, rendering road cameras secondary for verification rather than single points of failure.
+            </p>
+            <div class="sec-tag" data-i18n="sec_1_tag">AES-256 + ECDSA Signatures</div>
+          </div>
+
+          <div class="sec-card reveal-on-scroll">
+            <div class="sec-icon"><i class="fa-solid fa-bug-slash"></i></div>
+            <h3 class="sec-title" data-i18n="sec_2_title">Continuous Penetration Testing</h3>
+            <p class="sec-desc" data-i18n="sec_2_desc">
+              Rigorous adversarial vulnerability assessments, black-box penetration tests, and anti-spoofing algorithms prevent man-in-the-middle attacks, false GPS broadcasts, or unauthorized civilian signal tampering.
+            </p>
+            <div class="sec-tag" data-i18n="sec_2_tag">Zero-Day Vulnerability Auditing</div>
+          </div>
+
+          <div class="sec-card reveal-on-scroll">
+            <div class="sec-icon"><i class="fa-solid fa-fingerprint"></i></div>
+            <h3 class="sec-title" data-i18n="sec_3_title">Hardware Root of Trust &amp; Anti-Tamper</h3>
+            <p class="sec-desc" data-i18n="sec_3_desc">
+              Each in-vehicle cockpit unit and roadside cabinet features a dedicated Hardware Security Module (HSM). If physical tampering or firmware spoofing is detected, the unit self-isolates and alerts the central cyber operations center.
+            </p>
+            <div class="sec-tag" data-i18n="sec_3_tag">FIPS 140-3 Validated HSM</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FUTURE VISION & SCOPE -->
+    <section id="vision" class="section vision-section">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow" data-i18n="vision_eyebrow">HORIZON &amp; EXPANSION</span>
+          <h2 class="section-title" data-i18n="vision_title">Project Vision &amp; Scalability Roadmap</h2>
+          <p class="section-subtitle" data-i18n="vision_subtitle">
+            Pulseroute's modular architecture is designed to rapidly scale from regional paramedic fleets to comprehensive civic emergency protection and intelligent governance.
+          </p>
+        </div>
+
+        <div class="vision-cards-grid">
+          <!-- Scope 1: Multi-Agency Scaling -->
+          <div class="vision-card reveal-on-scroll">
+            <div class="vision-icon"><i class="fa-solid fa-building-shield"></i></div>
+            <h3 class="vision-card-title" data-i18n="vision_1_title">Multi-Agency Fleet Scaling</h3>
+            <p class="vision-card-desc" data-i18n="vision_1_desc">
+              Expanding dynamic preemption algorithms to Police tactical convoys, Fire Department heavy pumpers, and disaster relief fleets with dynamic hierarchical priority management.
+            </p>
+            <ul class="vision-list">
+              <li data-i18n="vision_1_li1">Priority hierarchy (Disaster &gt; Fire &gt; Medical &gt; Police)</li>
+              <li data-i18n="vision_1_li2">Multi-vehicle convoy synchronized corridors</li>
+            </ul>
+          </div>
+
+          <!-- Scope 2: VIP & Diplomatic Convoys -->
+          <div class="vision-card reveal-on-scroll">
+            <div class="vision-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <h3 class="vision-card-title" data-i18n="vision_2_title">VIP &amp; Diplomatic Transit</h3>
+            <p class="vision-card-desc" data-i18n="vision_2_desc">
+              Custom security escort protocols providing seamless, stop-free green corridors for foreign dignitaries, presidential motorcades, and critical security transports without paralyzing city traffic.
+            </p>
+            <ul class="vision-list">
+              <li data-i18n="vision_2_li1">Adaptive stealth preemption without visual alarms</li>
+              <li data-i18n="vision_2_li2">Anti-ambush dynamic re-routing algorithms</li>
+            </ul>
+          </div>
+
+          <!-- Scope 3: Satellite & IoT Anti-Hack -->
+          <div class="vision-card reveal-on-scroll">
+            <div class="vision-icon"><i class="fa-solid fa-satellite"></i></div>
+            <h3 class="vision-card-title" data-i18n="vision_3_title">Satellite &amp; Next-Gen IoT Grid</h3>
+            <p class="vision-card-desc" data-i18n="vision_3_desc">
+              Integration with Low Earth Orbit (LEO) satellite constellations and secure road-embedded sensor networks for autonomous backup synchronization when urban cellular towers experience outages.
+            </p>
+            <ul class="vision-list">
+              <li data-i18n="vision_3_li1">Direct-to-Satellite telemetry failover</li>
+              <li data-i18n="vision_3_li2">Decentralized edge compute at every signal head</li>
+            </ul>
+          </div>
+
+          <!-- Scope 4: Automated Compliance & Fines -->
+          <div class="vision-card reveal-on-scroll">
+            <div class="vision-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <h3 class="vision-card-title" data-i18n="vision_4_title">Smart Enforcement &amp; Fines</h3>
+            <p class="vision-card-desc" data-i18n="vision_4_desc">
+              Automated high-resolution camera and sensor logging of motorists who refuse to clear designated emergency lanes, automatically triggering structured municipal penalties to ensure 100% corridor compliance.
+            </p>
+            <ul class="vision-list">
+              <li data-i18n="vision_4_li1">Instant digital citation issuance with timestamped proof</li>
+              <li data-i18n="vision_4_li2">Public safety education integration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. THE TEAM SECTION -->
+    <section id="team" class="section team-section">
+      <div class="section-container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow" data-i18n="team_eyebrow">THE INNOVATORS</span>
+          <h2 class="section-title" data-i18n="team_title">Meet the Pulseroute Team</h2>
+          <p class="section-subtitle" data-i18n="team_subtitle">
+            Four specialized engineers and innovators committed to saving lives through intelligent cyber-physical systems and advanced emergency automation.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Member 1: Mazen Ahmed -->
+          <div class="team-card team-reveal-1">
+            <div class="team-photo-wrap">
+              <div class="photo-ring"></div>
+              <img src="assets/mazen_ahmed.jpg" alt="Mazen Ahmed" class="team-photo" />
+              <div class="photo-badge" title="Code / Developer"><i class="fa-solid fa-code"></i></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name" data-i18n="m1_name">Mazen Ahmed</h3>
+              <div class="team-role" data-i18n="m1_role">Full-Stack Developer</div>
+              <div class="team-meta">
+                <span class="team-age"><i class="fa-regular fa-id-card"></i> <span data-i18n="m1_age_label">Age</span>: <strong>17</strong></span>
+              </div>
+              <div class="skills-section">
+                <span class="skills-label" data-i18n="skills_heading">Core Skills:</span>
+                <ul class="skills-list">
+                  <li data-i18n="m1_s1">Modern Web Architecture &amp; Frontend Engineering</li>
+                  <li data-i18n="m1_s2">RESTful APIs &amp; Backend Integration</li>
+                  <li data-i18n="m1_s3">Database Management &amp; State Handling</li>
+                  <li data-i18n="m1_s4">Performance Optimization &amp; Responsive UI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 2: Yassen Sabry Elawamy -->
+          <div class="team-card team-reveal-2">
+            <div class="team-photo-wrap">
+              <div class="photo-ring"></div>
+              <img src="assets/yassen_sabry.jpg" alt="Yassen Sabry Elawamy" class="team-photo" />
+              <div class="photo-badge" title="Server / Database"><i class="fa-solid fa-server"></i></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name" data-i18n="m2_name">Yassen Sabry Elawamy</h3>
+              <div class="team-role" data-i18n="m2_role">Back-End Developer</div>
+              <div class="team-meta">
+                <span class="team-age"><i class="fa-regular fa-id-card"></i> <span data-i18n="m2_age_label">Age</span>: <strong>18</strong></span>
+              </div>
+              <div class="skills-section">
+                <span class="skills-label" data-i18n="skills_heading">Core Skills:</span>
+                <ul class="skills-list">
+                  <li data-i18n="m2_s1">Server-Side Architecture &amp; API Development</li>
+                  <li data-i18n="m2_s2">Database Design &amp; Query Optimization</li>
+                  <li data-i18n="m2_s3">Authentication &amp; System Security</li>
+                  <li data-i18n="m2_s4">Microservices &amp; Cloud Infrastructure</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 3: Ahmed Helmy El-Etr -->
+          <div class="team-card team-reveal-3">
+            <div class="team-photo-wrap">
+              <div class="photo-ring"></div>
+              <img src="assets/ahmed_helmy.jpg" alt="Ahmed Helmy El-Etr" class="team-photo" />
+              <div class="photo-badge" title="AI / Brain / Machine Learning"><i class="fa-solid fa-brain"></i></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name" data-i18n="m3_name">Ahmed Helmy El-Etr</h3>
+              <div class="team-role" data-i18n="m3_role">AI Developer &amp; Machine Learning Engineer</div>
+              <div class="team-meta">
+                <span class="team-age"><i class="fa-regular fa-id-card"></i> <span data-i18n="m3_age_label">Age</span>: <strong>16</strong></span>
+              </div>
+              <div class="skills-section">
+                <span class="skills-label" data-i18n="skills_heading">Core Skills:</span>
+                <ul class="skills-list">
+                  <li data-i18n="m3_s1">Predictive AI &amp; Dynamic Dispatch Algorithms</li>
+                  <li data-i18n="m3_s2">Machine Learning Model Deployment</li>
+                  <li data-i18n="m3_s3">Real-Time Data Processing &amp; Telemetry</li>
+                  <li data-i18n="m3_s4">Neural Networks &amp; Computer Vision</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 4: Mai Magdy Mahmoud -->
+          <div class="team-card team-reveal-4">
+            <div class="team-photo-wrap">
+              <div class="photo-ring"></div>
+              <img src="assets/mai_ibrahim.jpg" alt="Mai Magdy Mahmoud" class="team-photo" />
+              <div class="photo-badge" title="Shield / Cybersecurity"><i class="fa-solid fa-shield-halved"></i></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name" data-i18n="m4_name">Mai Magdy Mahmoud</h3>
+              <div class="team-role" data-i18n="m4_role">Cybersecurity &amp; Penetration Testing Engineer</div>
+              <div class="team-meta">
+                <span class="team-age"><i class="fa-regular fa-id-card"></i> <span data-i18n="m4_age_label">Age</span>: <strong>21</strong></span>
+              </div>
+              <div class="skills-section">
+                <span class="skills-label" data-i18n="skills_heading">Core Skills:</span>
+                <ul class="skills-list">
+                  <li data-i18n="m4_s1">Penetration Testing &amp; Vulnerability Assessment</li>
+                  <li data-i18n="m4_s2">Zero-Trust Network Architecture</li>
+                  <li data-i18n="m4_s3">Encrypted Protocols &amp; System Hardening</li>
+                  <li data-i18n="m4_s4">Infrastructure Security &amp; Threat Defense</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo.png" alt="PulseRoute Logo" class="brand-logo" />
+        </div>
+        <span class="brand-title">PULSEROUTE</span>
+      </div>
+      <p class="footer-copy" data-i18n="footer_copy">
+        An advanced cyber-physical emergency traffic preemption architecture. Submitted for Global Innovation Competition.
+      </p>
+      <div class="footer-meta">
+        <span>&copy; 2026 PulseRoute Technologies. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="app.js"></script>
+  <script defer src="team-loader.js"></script>
+</body>
+</html>
